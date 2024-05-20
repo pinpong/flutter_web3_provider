@@ -5,7 +5,7 @@ import 'package:js/js.dart';
 
 import 'ethereum.dart';
 
-@JS("providers")
+@JS()
 class Provider {
   @JS("waitForTransaction")
   external Future<TxReceipt> waitForTransaction(
@@ -80,9 +80,9 @@ class Log {
   });
 }
 
-@JS("providers.Web3Provider")
-class Web3Provider extends Provider {
-  external Web3Provider(Ethereum eth);
+@JS("BrowserProvider")
+class BrowserProvider extends Provider {
+  external BrowserProvider(Ethereum eth);
 
   @JS("getSigner")
   external Signer getSigner();
@@ -92,12 +92,12 @@ class Web3Provider extends Provider {
 
   @JS("getNetwork")
   external Future<Network> getNetwork();
-  
+
   @JS("getBlockNumber")
   external Future<BigInt> getBlockNumber();
 }
 
-@JS("providers.JsonRpcProvider")
+@JS("JsonRpcProvider")
 class JsonRpcProvider extends Provider {
   external JsonRpcProvider(String rpcUrl);
 
@@ -105,13 +105,13 @@ class JsonRpcProvider extends Provider {
   external Future<BigNumber> getBalance(String address);
 }
 
-@JS("networks.Network")
+@JS("Network")
 class Network {
   @JS("chainId")
   external int get chainId;
 }
 
-@JS("signer.Signer")
+@JS("Signer")
 class Signer {
   @JS("getAddress")
   external Future getAddress();

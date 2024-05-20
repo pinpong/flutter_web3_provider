@@ -59,7 +59,7 @@ Then create an ethers provider:
 // For a read-only provider:
 var provider = JsonRpcProvider("https://rpc.gochain.io");
 // For a read-write provider (ie: metamask, trust wallet, etc)
-var web3 = Web3Provider(ethereum);
+var web3 = BrowserProvider(ethereum);
 ```
 
 Then you can do things like check balance and submit transactions, etc:

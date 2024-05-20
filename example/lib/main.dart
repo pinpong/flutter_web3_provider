@@ -70,7 +70,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String selectedAddress;
-  Web3Provider web3;
+  BrowserProvider web3;
   TextEditingController _controller;
   TextEditingController _verifyController;
   Future balanceF;
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     if (ethereum != null) {
-      web3 = Web3Provider(ethereum);
+      web3 = BrowserProvider(ethereum);
       balanceF = promiseToFuture(web3.getBalance(ethereum.selectedAddress));
       var contract = Contract(goUsdcAddress, erc20Abi, web3);
       usdcBalanceF = promiseToFuture(
