@@ -85,7 +85,7 @@ class BrowserProvider extends Provider {
   external BrowserProvider(Ethereum eth);
 
   @JS("getSigner")
-  external Signer getSigner();
+  external Future<Signer> getSigner();
 
   @JS("getBalance")
   external Future<BigNumber> getBalance(String address);
